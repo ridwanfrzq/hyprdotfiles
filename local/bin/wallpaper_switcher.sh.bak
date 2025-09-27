@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Lokasi folder wallpaper
+DIR="$HOME/Pictures/Wallpapers"
+
+# Pastikan swww sudah jalan
+pgrep swww >/dev/null || swww init
+
+# Pilih file gambar lewat wofi
+FILE=$(ls -1 "$DIR" | wofi --dmenu --sort-order=alphabetical --gtk-dark  --prompt "Choose Wallpaper:")
+
+# Kalau ada file terpilih, jalankan swww dan pywal
+if [ -n "$FILE" ]; then
+    swww img "$DIR/$FILE" \
+        --transition-type any \
+        --transition-step 255 \
+        --transition-fps 60
+
+    # Generate warna dengan pywal tanpa set wallpaper ulang
+    wal -n -i "$DIR/$FILE" --backend haishoku
+    ~/.local/bin/pywal2hypr.sh
+    hyprctl reload
+    pkill -SIGUSR2 waybar
+fi

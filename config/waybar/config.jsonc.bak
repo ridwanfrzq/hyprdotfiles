@@ -1,0 +1,153 @@
+{
+  "layer": "top",
+  "position": "top",
+  "autohide": true,
+  "autohide-blocked": false,
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  /* === Modules Order === */
+  "modules-left": [
+    "custom/archicon",
+    "clock",
+    "cpu",
+    "memory",
+    "disk",
+    "temperature"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "custom/media",
+    "tray",
+    "idle_inhibitor",
+    "pulseaudio",
+    "network",
+    "battery",
+    "custom/logout"
+  ],
+  /* === Modules Left === */
+  "custom/archicon": {
+    "format": "󰣇",
+    "on-click": "wofi --show drun",
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%I:%M %p  %a, %b %d, %Y}",
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "mode": "month"
+    }
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": true,
+    "tooltip-format": "Uso de CPU: {usage}%\nNúcleos: {cores}"
+  },
+  "memory": {
+    "format": "{}% 󰍛",
+    "tooltip": true,
+    "tooltip-format": "RAM en uso: {used} / {total} ({percentage}%)"
+  },
+  "disk": {
+    "format": "{percentage_free}% ",
+    "tooltip": true,
+    "tooltip-format": "Espacio libre: {free} / {total} ({percentage_free}%)"
+  },
+  "temperature": {
+    "format": "{temperatureC}°C {icon}",
+    "tooltip": true,
+    "tooltip-format": "Temperatura actual: {temperatureC}°C\nCrítico si > 80°C",
+    "format-icons": [
+      ""
+    ]
+  },
+  /* === Modules Center === */
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "disable-scroll": true,
+    "all-outputs": true,
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+
+  /* === Modules Right === */
+  "custom/media": {
+    "exec": "~/.local/bin/waybar-media.sh",
+    "interval": 2,
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": " ",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+	""
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": " ",
+    "format-ethernet": "{ifname} 󰈀",
+    "format-disconnected": " ",
+    "tooltip-format": " {ifname} via {gwaddr}",
+    "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+    "tooltip-format-wifi": "Connected to {essid}\n{ifname} {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "kitty nmtui",
+    "max-length": 50
+  },
+  "battery": {
+    "interval":30,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "tooltip-format": "Battery at {capacity}%\n{timeTo}",
+    "format": "{icon}",
+    "format-charging": "󰂄",
+    "format-plugged": "󰂄 ",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+     ]
+    },
+  "custom/logout": {
+    "format": "",
+    "exec": "echo 'Logout'",
+    "on-click": "wlogout",
+    "tooltip": false
+  }
+}

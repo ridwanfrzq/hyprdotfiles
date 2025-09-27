@@ -1,0 +1,190 @@
+/* -- Global rules -- */
+* {
+  border: none;
+  font-family: "FiraCode Nerd Font";
+  font-size: 15px;
+  font-weight: bold;
+  min-height: 10px;
+}
+
+@import url('../../.cache/wal/colors-waybar.css');
+
+window#waybar {
+  background: rgba(34, 36, 54, 0);
+}
+
+window#waybar.hidden {
+  opacity: 0;
+}
+
+/* - Genera rules for visible modules -- */
+#custom-archicon,
+#clock,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#custom-media,
+#tray,
+#idle_inhibitor,
+#pulseaudio,
+#pulseaudio_slider,
+#network,
+#battery,
+#custom-logout {
+  color: #161320;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: none;
+}
+
+/* Separation to the left */
+#custom-archicon,
+#cpu,
+#custom-media,
+#tray {
+  margin-left: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#idle_inhibitor {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Separation to the rigth */
+#clock,
+#temperature,
+#custom-media,
+#custom-logout {
+  margin-right: 5px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* -- Specific styles -- */
+
+/* Modules left */
+#custom-archicon {
+  font-size: 20px;
+  /*color: #89B4FA;*/
+  color: @color1;
+  background: rgba(0, 0, 0, 0.5);
+  padding-right: 17px;
+}
+
+#clock,
+#cpu,
+#memory,
+#disk,
+#temperature {
+  background: rgba(0, 0, 0, 0.5);
+  color: rgb(225, 225, 225);
+}
+
+/* Modules center */
+#workspaces {
+background: rgba(0, 0, 0, 0.5);
+border-radius: 10px;
+margin: 6px 5px;          /* ubah dari 6px 5px */
+padding: 0;         /* padding dalam container bisa 0 agar full */
+}
+
+/* Semua button workspace */
+#workspaces button {
+color: rgb(225, 225, 225);
+background: transparent;
+padding: 4px 4px;      /* ruang dalam button */
+min-width: 18px;
+transition: all 0.3s ease-in-out;
+border-radius: 10px;     /* tetap radius untuk tombol */
+margin: 0;              /* hapus margin agar background container menutupi seluruh sisi */
+}
+
+/* Workspace aktif */
+#workspaces button.active {
+color: @color7;
+min-width: 40px;
+background-color: @color1;
+font-weight: bold;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+
+/* Modules right */
+#custom-media {
+  color: rgb(225, 225, 225);
+  background: rgba(0, 0, 0, 0.5);
+  padding-right: 15px;
+}
+
+#tray {
+  color: rgb(225, 225, 225);
+  background: rgba(0, 0, 0, 0.5);
+  padding-right: 5px;
+}
+
+#tray menu{
+  color: rgb(225, 225, 225);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#idle_inhibitor {
+  color: rgb(225, 225, 225);
+  background: rgba(0, 0, 0, 0.5);
+  padding-right: 15px;
+}
+
+#pulseaudio,
+#pulseaudop_slider {
+  color: rgb(225, 225, 225);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#network {
+  color: rgb(225, 225, 225);
+  background: rgba(0, 0, 0, 0.5);
+  padding-right: 5px;
+}
+
+#battery {
+  color: rgb(225, 225, 225);
+  background: rgba(0, 0, 0, 0.5);
+  padding-right: 5px;
+}
+
+#battery.warning {
+  color: rgb(200, 200, 0);
+}
+
+#battery.charging.warning {
+  color: rgb(225, 225, 225);
+}
+
+#battery.critical {
+  color: rgb(225, 0, 0);
+}
+
+#battery.charging.critical {
+  color: rgb(225, 225, 225);
+}
+
+#custom-logout {
+  color: rgb(225, 225, 225);
+  background: rgba(0, 0, 0, 0.5);
+  padding-right: 25px;
+}
+
+/* === Optional animation === */
+@keyframes blink {
+  to {
+    background-color: #BF616A;
+    color: #B5E8E0;
+  }
+}
