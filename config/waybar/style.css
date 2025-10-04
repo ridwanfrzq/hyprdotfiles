@@ -23,10 +23,10 @@ window#waybar.hidden {
 #cpu,
 #memory,
 #disk,
-#temperature,
 #custom-media,
 #tray,
 #pulseaudio,
+#backlight,
 #network,
 #battery,
 #custom-notification {
@@ -45,19 +45,19 @@ window#waybar.hidden {
 #tray,
 #pulseaudio {
   margin-left: 5px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
 }
 
 /* Separation to the rigth */
 #clock,
-#temperature,
+#disk,
 #custom-media,
 #tray,
 #custom-notification {
   margin-right: 5px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
 }
 
 /* -- Specific styles -- */
@@ -66,7 +66,7 @@ window#waybar.hidden {
 #custom-archicon {
   font-size: 20px;
   /*color: #89B4FA;*/
-  color: @color1;
+  color: rgb(225, 225, 225);
   background: rgba(0, 0, 0, 0.5);
   padding-right: 17px;
 }
@@ -74,16 +74,19 @@ window#waybar.hidden {
 #clock,
 #cpu,
 #memory,
-#disk,
-#temperature {
+#disk{
   background: rgba(0, 0, 0, 0.5);
   color: rgb(225, 225, 225);
+}
+
+#disk {
+  padding-right: 15px;
 }
 
 /* Modules center */
 #workspaces {
 background: rgba(0, 0, 0, 0.5);
-border-radius: 10px;
+border-radius: 7px;
 margin: 6px 5px;          /* ubah dari 6px 5px */
 padding: 0;         /* padding dalam container bisa 0 agar full */
 }
@@ -92,10 +95,10 @@ padding: 0;         /* padding dalam container bisa 0 agar full */
 #workspaces button {
 color: rgb(225, 225, 225);
 background: transparent;
-padding: 4px 4px;      /* ruang dalam button */
-min-width: 18px;
+padding: 4px 6px;      /* ruang dalam button */
+min-width: 20px;
 transition: all 0.3s ease-in-out;
-border-radius: 10px;     /* tetap radius untuk tombol */
+border-radius: 7px;     /* tetap radius untuk tombol */
 margin: 0;              /* hapus margin agar background container menutupi seluruh sisi */
 }
 
@@ -137,16 +140,22 @@ font-weight: bold;
   background: rgba(0, 0, 0, 0.5);
 }
 
+#backlight {
+  color: rgb(225, 225, 225);
+  background: rgba(0, 0, 0, 0.5);
+  padding-right: 8px;
+}
+
 #network {
   color: rgb(225, 225, 225);
   background: rgba(0, 0, 0, 0.5);
-  padding-right: 5px;
+  padding-right: 2px;
 }
 
 #battery {
   color: rgb(225, 225, 225);
   background: rgba(0, 0, 0, 0.5);
-  padding-right: 5px;
+  padding-right: 2px;
 }
 
 #battery.warning {
@@ -168,7 +177,7 @@ font-weight: bold;
 #custom-notification {
   color: rgb(225, 225, 225);
   background: rgba(0, 0, 0, 0.5);
-  padding-right: 25px;
+  padding-right: 15px;
 }
 
 /* === Optional animation === */

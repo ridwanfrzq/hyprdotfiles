@@ -13,7 +13,6 @@
     "cpu",
     "memory",
     "disk",
-    "temperature"
   ],
   "modules-center": [
     "hyprland/workspaces"
@@ -22,6 +21,7 @@
     "custom/media",
     "tray",
     "pulseaudio",
+    "backlight",
     "network",
     "battery",
     "custom/notification"
@@ -42,25 +42,17 @@
   "cpu": {
     "format": "{usage}% ",
     "tooltip": true,
-    "tooltip-format": "Uso de CPU: {usage}%\nNúcleos: {cores}"
+    "tooltip-format": "CPU Usage: {usage}%\nNúcleos: {cores}"
   },
   "memory": {
     "format": "{}% 󰍛",
     "tooltip": true,
-    "tooltip-format": "RAM en uso: {used} / {total} ({percentage}%)"
+    "tooltip-format": "RAM Usage: {used} / {total} ({percentage}%)"
   },
   "disk": {
     "format": "{percentage_free}% ",
     "tooltip": true,
-    "tooltip-format": "Espacio libre: {free} / {total} ({percentage_free}%)"
-  },
-  "temperature": {
-    "format": "{temperatureC}°C {icon}",
-    "tooltip": true,
-    "tooltip-format": "Temperatura actual: {temperatureC}°C\nCrítico si > 80°C",
-    "format-icons": [
-      ""
-    ]
+    "tooltip-format": "Free Space: {free} / {total} ({percentage_free}%)"
   },
   /* === Modules Center === */
   "hyprland/workspaces": {
@@ -85,7 +77,8 @@
 
   "tray": {
     "icon-size": 16,
-    "spacing": 10
+    "spacing": 10,
+    "show-passive-items": true
   },
   "pulseaudio": {
     "format": "{volume}% {icon}",
@@ -97,7 +90,23 @@
 	""
       ]
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
+    "reverse-scrolling": true
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+    "reverse-scrolling": true
   },
   "network": {
     "format": "{ifname}",
@@ -139,14 +148,14 @@
     "tooltip": false,
     "format": "{icon}",
     "format-icons": {
-      "notification": "<span foreground='red'><sup></sup></span>",
-      "none": "",
-      "dnd-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-none": "",
-      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "inhibited-none": "",
-      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": ""
+      "notification": "",
+      "none": "",
+      "dnd-notification": "",
+      "dnd-none": "",
+      "inhibited-notification": "",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "",
+      "dnd-inhibited-none": ""
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
